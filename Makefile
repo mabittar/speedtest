@@ -21,16 +21,15 @@ run: ## Run speed test
 		echo " Check if virtual environment exists or initiate"; \
 		if [ -d /venv ]; \
 		then \
-		echo "virtual environment already exists"; \
+		echo "virtual environment already exists, just active it"; \
+		source venv/bin/activate; \
 		else \
 		echo "start creation virtual environment" \
 		python -m venv venv; \
-		fi; \
-		clear; \
 		source venv/bin/activate; \
-		clear; \
 		echo "Install requirements"; \
 		pip install -r requirements.txt; \
+		fi; \
 		clear; \
 		echo "Running speed test"; \
 		. test.sh; \
